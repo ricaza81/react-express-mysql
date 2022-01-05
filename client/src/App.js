@@ -63,10 +63,10 @@ function App() {
         </div>
       </div>
 
-      <div className="container mt-2">
+      <div className="container mt-2" style={{display:"flex"}}>
         {imageList.map(image => (
-        <div key={image} className="card" style={{height:"200px",width:"300px"}}>       
-           <img className="card-img-top" src={'http://localhost:5000/' + image } />
+        <div key={image} className="card m-2" style={{height:"200px",width:"300px"}}>       
+           <img className="card-img-top m-2" src={'http://localhost:5000/' + image } />
          </div>
         ))      
         }
