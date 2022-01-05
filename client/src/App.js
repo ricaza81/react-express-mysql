@@ -3,16 +3,18 @@ import React, {Fragment, useState, useEffect} from 'react';
 function App() {
 
   const [file, setFile] = useState(null)
-  const [imageList, setimageList] = useState([])
+  const [imageList, setImageList] = useState([])
+  const [listUpdate, setListUpdate] = useState(false)
 
   useEffect(() => {
    fetch('http://localhost:5000/images/get')
     .then(res => res.json())
-    .then(res => setimageList(res))
+    .then(res => setImageList(res))
     .catch(err => {
       console.error(err)
     })
-  }, [])
+    setListUpdate(false)
+  }, [listUpdate])
 
   const selectedHandler = e => {
     setFile(e.target.files[0])
@@ -32,7 +34,10 @@ function App() {
       body: formdata
     })
     .then(res => res.text())
-    .then(res => console.log(res))
+    .then(res => {
+      console.log(res)
+      setListUpdate(true)
+    })
     .catch(err => {
       console.error(err)
     })

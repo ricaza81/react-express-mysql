@@ -17,7 +17,8 @@ const fileUpload = multer({
 }).single('image')
 
 router.get('/', (req, res) => {
-    res.send('Welcome to my image app')
+    res.send('Bienvenido')
+    //console.log(res)
 })
 
 router.post('/images/post', fileUpload,(req, res) => {
